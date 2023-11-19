@@ -5,16 +5,22 @@ https://www.youtube.com/watch?v=_8nLSsK5NDo&list=PL82C6-O4XrHdiS10BLh23x71ve9mQC
 
 ---
 1) Ouvrir visual studio et cliquer sur "create a new project" 
+
    ![create new](./images/createNew.PNG)
 2) Rechercher pour Web Api 
+
    ![choose web API](./images/chooseWebApi.PNG)
 3) Nommez le PokemonReviewApp 
+
    ![name it PokemonReviewApp](./images/namePokermonReviewApp.PNG)
 4) Assurez vous que dotnet 6 est sélectionné et que les check box sont correctement coché ( OpenApi pour swagger) 
+
    ![make sure dotnet 6](./images/makeSureDotNet6.PNG)
 5) Supprimez WeatherForcast.cs , nous n'en avons pas besoin 
+
    ![delete WeatherForecast.cs](./images/deleteWeatherForcast.png)
 6) Supprimez WeatherForcastCoontroller.cs aussi 
+
    ![delete weatherForcastController](./images/deleteWeatherForcastController.png)
 ---
 # **Video 2 - Models**
@@ -23,11 +29,15 @@ https://www.youtube.com/watch?v=BnlFovYeQtI&list=PL82C6-O4XrHdiS10BLh23x71ve9mQC
 ---
 
 1) Creer dossier "Models" : 
+
    ![create folder Model](./images/createFolderModel.png) 
+
    ![folder model created](./images/folderModelCreated.png)
 2) Dans le dossier Models, creez la classe Pokemon 
+
    ![add class Pokemon](./images/addClassPokemon.png)
 3) creer les attibuts de Pokemon, hint: taper "prop" pour avoir le code snippet "property" et écrire plus rapidement.
+
 ![property code snippet](./images/propertyCodeSnippet.png)
 
 - Pokemon
@@ -107,6 +117,7 @@ namespace PokemonReviewApp.Models
     }
 }
 ```
+
 ![models completed](./images/modelsCompleted.png)
 
 ---
@@ -206,23 +217,32 @@ https://www.youtube.com/watch?v=EmV_IBYIlyo&list=PL82C6-O4XrHdiS10BLh23x71ve9mQC
 
 ### 1) Installer SQL serveur pour la suite du tuto.
 ### 2) Créer la base de donner ***pokemonreview*** dans le SQL Server Management Studio 
-![new database](./images/newDatabase.png) 
+
+![new database](./images/newDatabase.png)
+
 ![new db pokemonreview](./images/newdbPokemonreview.png)
 ### 3) Récupérer la connection string:
    - Faite apparaitre le Sql Object Server Explorer dans View -> Sql Object server Explorer 
+
     ![sql server object explorer](./images/sqlServerObjectExplorer.png)
    - cliquer sur la deuxieme icone "add sql server" 
+
     ![add sql server](./images/addSqlServer.png)
    - pour trouver le Server Name, retourner au SQL Server Management Studio, faite un clique droit sur votre nom de serveur, puis propriété 
+
     ![server properties](./images/serverProperties.png)
    - Dans la fenêtre qui s'ouvre, copié le server Name, puis aller le collé ensuite dans visual studio la ou on vous demande le server name 
+
     ![copy server name](./images/copyServerName.png)
    - vous pourrez ensuite choisir dans le menu déroulant le nom de votre database (pokemonreview) 
+
     ![dropdown pokemonreview](./images/dropdownPokemonreview.png)
    - clique connect
    - Dans le SQL Server Object Explorer de visual studio,cliquer sur votre serveur, trouver votre database et  cliquer droit sur votre database, propriété 
+
     ![databse property](./images/databaseProperty.png)
    - Cela va vous ouvrir une fenêtre de propriétés ou vous pourrez récupérer la connection string 
+
     ![connection string](./images/connectionString.png)
    - copié la connection string et allez la collé dans le fichier appsettings.json
 ```json
@@ -241,21 +261,29 @@ https://www.youtube.com/watch?v=EmV_IBYIlyo&list=PL82C6-O4XrHdiS10BLh23x71ve9mQC
 ```
 ### 4) Récupérer Entity Framework avec les nuggets :
    - Clicque droit sur le PokemonReviewApp et choisir "Manage NUgget Packages" 
+
     ![nugget packages](./images/NuggetPackages.png)
-   - Installer Microsoft.EntityFrameworkCore.SqlServer 
+   - Installer Microsoft.EntityFrameworkCore.SqlServer
+
   ![install entity sql server](./images/installEntitySqlServer.png)
    - Choisir la version 7 de entity framework, car si on choisir la dernier version stable (8+) elle n'est pas compatible avec dotnet 6 
+
     ![entity version 7](./images/efVersion7.png)
  - Toujours dans le nugget manager, choisir Microsoft.EntityframworkCore.Design
+
    ![ef design](./images/efDesing.png)
  - Choisir encore une fois une version 7 pour assurer la compatibiliter avec dotnet 6 
+
   ![efDeisng7](./images/efDesign7.png)
 - Toujours dans le nugget manager, choisir Microsoft.EntityframworkCore.Tools
+
   ![ef tools](./images/efTools.png)
  - Choisir encore une fois une version 7 pour assurer la compatibiliter avec dotnet 6 ![efTools7](./images/efTools7.png
 ### 5) Créer un dossir "Data" dans le projet afin de receuillir le DataContext
+
  ![createData](./images/createData.png)
 ### 6) Créer la classe "DataContext" dans le dossier "Data" qui héritera de DBContext:
+
  ![dbConext](./images/dbContext.png)
 ```csharp
 namespace PokemonReviewApp.Data
@@ -349,10 +377,12 @@ void SeedData(IHost app)
 ```
 ### 13) Ajouter une migration
 - Aller dans Tools -> nugget package manager -> package manager console 
+
 - ![package manager console](./images/packageManagerConsole.png)
 - Tapez dans la console :
 
         Add-Migration InitialCreate
+
   ![add migration success](./images/addMigrationSucceed.png)
 - Un nouveau dossier "Migration" sera créé dans votre projet 
 
@@ -361,6 +391,7 @@ void SeedData(IHost app)
  - Pour sauvegarder dans la database, il faut entrer la commande dans le PMC :
   
         Update-Database
+
 ![update database](./images/updateDatabase.png)
 - Hors, même si la commande succeeded, de la façon que notre programme est fait, il faut lancer le programme en commandline avec 1 argument "seeddata" pour que la methode SeedData(app) soit apellé ( voire dna sle Program.cs la ligne )
 ```csharp
@@ -368,12 +399,14 @@ if (args.Length == 1 && args[0].ToLower() == "seeddata")
     SeedData(app);
 ```
 Donc, pour ce faire, ouvrir un terminal dans le dossier racine du projet, pour ce faire aller dans view -> terminal
+
  ![terminal](./images/terminal.png)
 
  Et tapez la commande suivante:
         
         cd PokemonReviewApp
         dotnet run seeddata
+
 ![run cmd](./images/runCmd.png)
 Maintenant vous pouvez vous assurez que vos table son bel et bien créé dans votre base de donner:
 
@@ -388,9 +421,11 @@ https://www.youtube.com/watch?v=-LAeEQSfOQk&list=PL82C6-O4XrHdiS10BLh23x71ve9mQC
 ---
 
 ### 1) Créer un dossier Interfaces, Repository et s'il n'existe pas déjà, un dossier Controllers
+
 ![repository](./images/repository.png)
 
 ### 2) Créer une interface ( dans le dossier interfaces bien sûre), IPokemonRepository, et creer la signature d'une méthode "GetPokemons()" qui retourne un ICollection
+
 ![create interface](./images/createInterface.png)
 
 ```csharp
@@ -401,6 +436,7 @@ public interface IPokemonRepository
 ```
 
 ### 3) Créer une implementation de l'interface dans le dossier "Repository". Nous le nommerons "PokemonRepository"
+
 ![pokemon repository](./images/pokemonRepository.png)
     
 - créer un attribut privé de type DataContext et un constructeur qui prend en paramètre le DataContext
@@ -438,6 +474,7 @@ namespace PokemonReviewApp.Controllers
 
 ```
 - **assurez vous d'importer le Microsoft.AspNetCore.Mvc et non le Microsoft.AspNetCore.Components**
+
 ![aspMvc](./images/aspMvc.png)
 ### 5) insérer ces ligne de code dans le controller qu ivalide si la requête HTTPGET est bonne , sinon il retourne une erreur, si oui il retourne la list de pokemons
 
@@ -460,6 +497,7 @@ namespace PokemonReviewApp.Controllers
        builder.Services.AddScoped<IPokemonRepository, PokemonRepository>(); 
 
 ### 7) A ce stade l'on peux Run l'application pour voir si cela compile et s'il y a des erreurs avant de continuer. Si cela fonctionne, executer une requête GET avec swagger pour voir si l'application retourne des bonnes valeurs
+
 ![get success](./images/getSuccess.png)
 
 ---
@@ -587,9 +625,11 @@ namespace PokemonReviewApp.Repository
 
 ```
 # 4) Créez un DTO (data transfer Object). Pour ce faire, créer un folder DTO
+
 ![dto](./images/dto.png)
 
 # 5) Créer une classe PokemonDto. Le Dto servira exposer seulement les methodes qui ne retourne pas des listes, pour des raison de sécurité. Pour ce faire , allez dans la classe Pokemon.cs et copié/collé juste les méthode que vous voulez exposer dans le Dto 
+
 ![dtoCopyPaste](./images/dtoCopyPaste.png)
 
 ![dtoPaste](./images/dtoPaste.png)
@@ -675,6 +715,7 @@ namespace PokemonReviewApp.Controllers
 ![automapper](./images/autoMapper.png)
 
 ### 8) Créer un folder "Helper" et è l'intérieur la classe "MappingProfiles" qui hérite de "Profile"
+
 ![mappingProfile](./images/mappingProfile.png)
 
 ```csharp
@@ -748,6 +789,7 @@ https://www.youtube.com/watch?v=FEanWuYq7us&list=PL82C6-O4XrHdiS10BLh23x71ve9mQC
 -  MappingProfiles
 
 ### 2) l'architecture devrais ressembler à ceci:
+
 ![architecture](./images/architecture.png)
 ### 3) Compilez et tester chaque request avec le swagger
 
@@ -853,9 +895,11 @@ CreateMap<CategoryDto,Category>();
 ```
 
 ### 6) vous devriez donc avoir un mapping dans les 2 sens comme ceci:
+
 ![mapping](./images/2wayMapping.png)
 
 ### 7) Executez le programme et tester avec swagger si la catergorie est bien créer
+
 ![catCreated](./images/catCreated.png)
 
 ### 8) Répétez la même séquence pour chacune des autres classe du model pour les cas des table qui possède des clef étrangère ou des relations plusieur à plusieur, il vas falloir prendre en compte les contraintes. Voici le code de controlleur pour les différente classe pour la requete POST
