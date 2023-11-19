@@ -1,4 +1,4 @@
-## Tutoriel pas à pas du youtuber Teddy Smith 
+## Tutoriel pas à pas du youtuber Teddy Smith  https://github.com/teddysmithdev/pokemon-review-api
 ---
 # **Video 1 - Creer le projet**
 https://www.youtube.com/watch?v=_8nLSsK5NDo&list=PL82C6-O4XrHdiS10BLh23x71ve9mQCln0&ab_channel=TeddySmith
