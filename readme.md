@@ -223,27 +223,27 @@ https://www.youtube.com/watch?v=EmV_IBYIlyo&list=PL82C6-O4XrHdiS10BLh23x71ve9mQC
 ![new db pokemonreview](./images/newdbPokemonreview.png)
 ### 3) Récupérer la connection string:
    - Faite apparaitre le Sql Object Server Explorer dans View -> Sql Object server Explorer 
-
-    ![sql server object explorer](./images/sqlServerObjectExplorer.png)
+   
+   ![sqlserverobjectexplorer](./images/sqlServerObjectExplorer.png)
    - cliquer sur la deuxieme icone "add sql server" 
 
-    ![add sql server](./images/addSqlServer.png)
+![add sql server](./images/addSqlServer.png)
    - pour trouver le Server Name, retourner au SQL Server Management Studio, faite un clique droit sur votre nom de serveur, puis propriété 
 
-    ![server properties](./images/serverProperties.png)
+![server properties](./images/serverProperties.png)
    - Dans la fenêtre qui s'ouvre, copié le server Name, puis aller le collé ensuite dans visual studio la ou on vous demande le server name 
 
-    ![copy server name](./images/copyServerName.png)
+![copy server name](./images/copyServerName.png)
    - vous pourrez ensuite choisir dans le menu déroulant le nom de votre database (pokemonreview) 
 
-    ![dropdown pokemonreview](./images/dropdownPokemonreview.png)
+![dropdown pokemonreview](./images/dropdownPokemonreview.png)
    - clique connect
    - Dans le SQL Server Object Explorer de visual studio,cliquer sur votre serveur, trouver votre database et  cliquer droit sur votre database, propriété 
 
-    ![databse property](./images/databaseProperty.png)
+![databse property](./images/databaseProperty.png)
    - Cela va vous ouvrir une fenêtre de propriétés ou vous pourrez récupérer la connection string 
 
-    ![connection string](./images/connectionString.png)
+![connection string](./images/connectionString.png)
    - copié la connection string et allez la collé dans le fichier appsettings.json
 ```json
 {
@@ -262,13 +262,13 @@ https://www.youtube.com/watch?v=EmV_IBYIlyo&list=PL82C6-O4XrHdiS10BLh23x71ve9mQC
 ### 4) Récupérer Entity Framework avec les nuggets :
    - Clicque droit sur le PokemonReviewApp et choisir "Manage NUgget Packages" 
 
-    ![nugget packages](./images/NuggetPackages.png)
+![nugget packages](./images/NuggetPackages.png)
    - Installer Microsoft.EntityFrameworkCore.SqlServer
 
   ![install entity sql server](./images/installEntitySqlServer.png)
    - Choisir la version 7 de entity framework, car si on choisir la dernier version stable (8+) elle n'est pas compatible avec dotnet 6 
 
-    ![entity version 7](./images/efVersion7.png)
+![entity version 7](./images/efVersion7.png)
  - Toujours dans le nugget manager, choisir Microsoft.EntityframworkCore.Design
 
    ![ef design](./images/efDesing.png)
